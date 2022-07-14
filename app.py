@@ -5,13 +5,17 @@ from extentions import ConvertionExeption, CurrencyConverter
 
 bot = telebot.TeleBot(TOKEN)  # создаем объект бот (экземпляр класса TeleBot) с токеном, полученным при регистрации
 
-
 @bot.message_handler(commands=['start', 'help'])  # Вывод инструкции
-def values(message: telebot.types.Message):
+def help(mesage: telebot.types.Message):
     text = 'Для запроса введите: \n<имя валюты> \
 <в какую валюту перевести> \
-<количество переводимой валюты> \n \n \
-Доступные валюты:'
+<количество переводимой валюты>'
+    bot.reply_to(mesage, text)
+
+
+@bot.message_handler(commands=['values'])
+def values(message: telebot.types.Message):
+    text = 'Доступные валюты:'
     for key in keys.keys():
         text = '\n'.join((text, key, ))
     bot.reply_to(message, text)
