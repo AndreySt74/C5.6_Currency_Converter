@@ -1,6 +1,6 @@
 import telebot
 from config import keys, TOKEN
-from extentions import ConvertionExeption, CurrencyConverter
+from extensions import ConvertionExeption, CurrencyConverter
 
 
 bot = telebot.TeleBot(TOKEN)  # создаем объект бот (экземпляр класса TeleBot) с токеном, полученным при регистрации
